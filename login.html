@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <style>
+        /* #MAIN{
+            width: 100%;
+            height: 100px;
+            margin: 0px;
+            padding: 0px;
+            background-color: black;
+        } */
+        #main{
+            border-radius: 40px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            text-align: center;
+            justify-content: center;
+            margin-left: 400px;
+            margin-top: 200px;
+            width: 50%;
+            height: 40vh;
+            display: flex;
+            background-color: #8565ca;
+            /* border: 2px solid red; */
+        }
+        #big{
+            width: 60%;
+            /* border: 1px solid black; */
+            text-align: center;
+            background-color: #8666cb;
+            border-radius: 40px;
+            
+        }
+        .tg{
+            text-align: center;
+           margin-top: 50px;
+           color: white;
+        }
+        .stg{
+            color: white;
+        }
+        #small{
+            width: 40%;
+            background-color: white;
+            /* border: 1px solid black; */
+        }
+        .frs{
+            /* width: 50px; */
+            width: 160px;
+           height: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+           
+            border-radius: 20px;
+        }
+        .fss{
+           width: 160px;
+           height: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+           
+            border-radius: 20px;
+        }
+        .fps{
+           font-size: x-small;
+            margin-top: 0px;
+            margin-left: 60px;
+            border-radius: 20px;
+        }
+        #btn2{
+           border: 1px solid green;
+           width: 180px;
+           height: 30px;
+           background-color: blue;
+           border-radius: 10px;
+           color: white;
+        }
+        #sign{
+            color: coral;
+        }
+        #new{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="MAIN">
+        <div id="main">
+            <div id="big">
+                <h2 class="tg"> Welcome To Website</h2>
+                <p class="stg">You can sign in to exist your Account</p>
+            </div>
+            <div id="small">
+                <h3>USER LOGIN</h3>
+                <input class="frs" type="text" placeholder="Enter Email/Mobile Number" id="mobile">
+                <input class="fss" type="text" placeholder="Password" id="pass">
+                <p class="fps">Forget Password</p>
+                <button id="btn2" >login</button>
+                <p id="new">New to Flipkart?<span id="sign">Create an Account</span></p>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>
+<script>
+     document.getElementById("sign").addEventListener("click",golog);
+    document.getElementById("btn2").addEventListener("click",gohome);
+    function gohome(){
+        
+   
+    var ans=false;
+    var mobile=document.getElementById("mobile").value;
+    var passw=document.getElementById("pass").value;
+
+    var getar=JSON.parse(localStorage.getItem("sig"))||[]
+    getar.map(function(ele){
+        console.log("eyes")
+        if(mobile==ele.email && passw==ele.Password){
+            ans=true;
+            
+            window.location.replace("./index.html");
+        }
+      
+    })
+    if(ans==false){
+            alert("Please fill valid data");
+            window.reload
+        }
+
+   
+}
+
+function golog(){
+    console.log("no")
+        window.location.replace("./signup.html")
+    }
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #sup{
+      text-align: center;
+      }
+    
+    </style>
+</head>
+<body>
+    <div id="main">
+       
+        <form action="#"> 
+            <h1>SIGN UP</h1>
+            <input type="text" placeholder=" First Name" id="name">
+            <input type="text" placeholder=" Last Name" id="last">
+            <input type="text" placeholder=" Email" id="em">
+            <input type="text" placeholder=" Password" id="pas">
+            <!-- <p>already member?<span>login</span></p> -->
+            <!-- <button>SIGN UP</button> -->
+            <input type="text" value="Signup" id="sup">
+        </form>
+       
+       
+    </div>
+</body>
+</html>
+<script>
+  document.getElementById("sup").addEventListener("click",store)
+
+  var newar=JSON.parse(localStorage.getItem("sig")) || [];
+  function store(){
+   event.preventDefault();
+   console.log("ues")
+   var firstname=document.getElementById("name").value;
+   var lastname=document.getElementById("last").value;
+   var em=document.getElementById("em").value;
+   var Password=document.getElementById("pas").value;
+   var obj={
+    name:firstname,
+    last:lastname,
+    email:em,
+    Password:Password,
+   }
+   newar.push(obj)
+   localStorage.setItem("sig",JSON.stringify(newar));
+
+   alert("Your account is created")
+   window.location.replace("./login.html")
+  }
+  
+</script>
